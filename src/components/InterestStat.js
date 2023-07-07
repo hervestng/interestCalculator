@@ -1,5 +1,5 @@
 import { Box, Text, Flex, HStack, Stack, Button, VStack, Center } from '@chakra-ui/react'
-import React,{useState} from 'react'
+import React from 'react'
 import LineChart from './LineChart'
 
 

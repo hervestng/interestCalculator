@@ -1,21 +1,17 @@
 import {
     Drawer,
     DrawerBody,
-    DrawerFooter,
     DrawerHeader,
     DrawerOverlay,
     DrawerContent,
-    DrawerCloseButton,
     Box,    
     Button,
     Img,
     Text,
     useDisclosure,
-    HStack,
     Flex,
     VStack
   } from '@chakra-ui/react'
-import { useState } from 'react'
 import { HiMenuAlt2 } from 'react-icons/hi'
 import logo from '../assets/HerVest Logo.svg'
 import google from "../assets/Google Play.svg"
