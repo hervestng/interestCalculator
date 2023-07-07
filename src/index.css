@@ -1,0 +1,10 @@
+
+@font-face {
+    font-family: 'MyFont';
+    src: local('MyFont'), url(./fonts/Fonts/OTF/Satoshi-Regular.otf) format('woff');
+    
+  }
+body {
+    font-family: 'MyFont' !important;
+  }
+  
