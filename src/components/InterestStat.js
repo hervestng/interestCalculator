@@ -15,47 +15,48 @@ const InterestStat = () => {
   const [interest, setInterest] = useState(0)
   
 
-  const calculate = async()=>{
-
-    if(timeframe<3){
-           setTotalBalance(0)
-           setInterest(0)
-      return setErrorMessage('Duration cannot be less than 3 months ')
-    }
-
-    if(timeframe>12){
-      setTotalBalance(0)
-      setInterest(0)
-     return setErrorMessage('Duration cannot be more than 12 months ')
-    }
-    
-    if(amount<=0){
-      setTotalBalance(0)
-      setInterest(0)
-      return setErrorMessageForAmount('Amount must be greater than 0')
-    }
-    setErrorMessage('')
-    setErrorMessageForAmount('')
-
-    //(14/100/365)*timeframe to get the interest.
   
-    try {
-      const data = await calculator(amount, frequency,timeframe)
-     
-      setTotalBalance(data.total)
-      setInterest(data.interest)
-
-     
-    } catch (error) {
-      console.log(error,"error")
-    }
-  }
- 
-
   
   useEffect(()=>{
 
-  console.log(errorMessageForAmount =='', errormessage=='', (errormessage ==='') &&  (errorMessageForAmount ===''), "error messsages")
+    const calculate = async()=>{
+
+      if(timeframe<3){
+             setTotalBalance(0)
+             setInterest(0)
+        return setErrorMessage('Duration cannot be less than 3 months ')
+      }
+  
+      if(timeframe>12){
+        setTotalBalance(0)
+        setInterest(0)
+       return setErrorMessage('Duration cannot be more than 12 months ')
+      }
+      
+      if(amount<=0){
+        setTotalBalance(0)
+        setInterest(0)
+        return setErrorMessageForAmount('Amount must be greater than 0')
+      }
+      setErrorMessage('')
+      setErrorMessageForAmount('')
+  
+      //(14/100/365)*timeframe to get the interest.
+    
+      try {
+        const data = await calculator(amount, frequency,timeframe)
+       
+        setTotalBalance(data.total)
+        setInterest(data.interest)
+  
+       
+      } catch (error) {
+        console.log(error,"error")
+      }
+    }
+   
+  
+    console.log(errorMessageForAmount ==='', errormessage ==='', (errormessage ==='') &&  (errorMessageForAmount ===''), "error messsages")
   
    calculate()
   },[amount, timeframe, frequency, errorMessageForAmount, errormessage]) 
