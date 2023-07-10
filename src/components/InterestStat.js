@@ -63,7 +63,7 @@ const InterestStat = () => {
   return (
     <>
     <Flex m={["30px auto 0 auto","70px auto 0 auto"]} w={["100%","90%","90%"]} justifyContent="space-between" flexDir={["column","column","column","row"]} >
-        <Box m="auto" w={["100%","100%","50%","38%"]} >
+        <Box m="0 auto" w={["100%","100%","50%","38%"]} >
             <Box m="auto" boxShadow="rgba(149, 157, 165, 0.2) 0px 8px 24px"  p="47px 53px 47px 53px" >
                 <Text fontSize="14px" color="#666666" opacity="80%">I want to save</Text>
                  <HStack opacity="38%" >
