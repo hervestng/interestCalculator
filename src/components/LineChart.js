@@ -24,7 +24,31 @@ ChartJS.register(
   Legend
 );
 
-export const options = {
+
+
+export default function LineChart({totalBalance ,investmentMonths}) {
+
+  console.log(totalBalance, investmentMonths)
+
+ let interestPerMonth = totalBalance / investmentMonths;
+ const currentDate = new Date();
+ const currentMonth = currentDate.getMonth();
+
+const months = []
+const interestValues = [];
+
+for (let i = 0; i < investmentMonths; i++) {
+  const month = (currentMonth + i) % 12;
+  const monthName = new Date(0, month).toLocaleString('en-US', { month: 'long' });
+  months.push(monthName);
+  interestValues.push(interestPerMonth )
+  interestPerMonth = interestPerMonth + totalBalance / investmentMonths
+}
+
+console.log("Months:", months);
+console.log("Interest Values:", interestValues);
+
+const options = {
   responsive: true,
   plugins: {
     legend: {
@@ -35,24 +59,22 @@ export const options = {
       text: 'Savings',
     },
   },
-};
+}
 
-const labels = ['March', 'April', 'May', 'June', 'July'];
+const labels = months;
 
-export const data = {
+const data = {
   labels,
   datasets: [
     
     {
       label: 'Dataset 2',
-      data: [54, 12, 84, 58, 90, 2, 300],
+      data: interestValues,
       borderColor: '#540A45 ',
       backgroundColor: '#5B2E4F',
     },
   ],
 };
-
-export default function LineChart() {
   return (
     <Box>
      <Line width={500} height={300} options={options} data={data} />
