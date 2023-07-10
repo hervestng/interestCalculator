@@ -4,6 +4,16 @@
     src: local('MyFont'), url(./fonts/Fonts/OTF/Satoshi-Regular.otf) format('woff');
     
   }
+  @font-face {
+    font-family: 'SatoshiBold';
+    src: local('MyFont'), url(./fonts/Fonts/OTF/Satoshi-Medium.otf) format('woff');
+    
+  }
+  @font-face {
+    font-family: 'SatoshiBolder';
+    src: local('MyFont'), url(./fonts/Fonts/OTF/Satoshi-Bold.otf) format('woff');
+    
+  }
 body {
     font-family: 'MyFont' !important;
   }

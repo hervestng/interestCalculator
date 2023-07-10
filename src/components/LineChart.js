@@ -12,6 +12,8 @@ import {
 import { Line } from 'react-chartjs-2';
 import { Box } from '@chakra-ui/react';
 
+//(14/100/365)*timeframe to get the interest.
+
 ChartJS.register(
   CategoryScale,
   LinearScale,

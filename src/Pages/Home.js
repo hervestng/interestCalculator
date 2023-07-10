@@ -4,8 +4,6 @@ import Navbar from '../components/Navbar'
 import InterestStat from '../components/InterestStat'
 
 
-
-
 const Home = () => {
   return (
    <Box p={["20px 20px","20px 40px"]}>
