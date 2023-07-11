@@ -15,7 +15,10 @@ const InterestStat = () => {
   const [interest, setInterest] = useState(0)
   
 
-  
+  let naira = Intl.NumberFormat('en-NG', {
+    style: 'currency',
+    currency: 'NGN',
+  });
   
   useEffect(()=>{
 
@@ -54,7 +57,7 @@ const InterestStat = () => {
         console.log(error,"error")
       }
     }
-   
+    
   
     console.log(errorMessageForAmount ==='', errormessage ==='', (errormessage ==='') &&  (errorMessageForAmount ===''), "error messsages")
   
@@ -119,10 +122,10 @@ const InterestStat = () => {
         <Box w={["100%","100%","100%","45%"]} boxShadow="rgba(100, 100, 111, 0.2) 0px 7px 29px 0px"  p="50px 70px 50px 70px" m={["80px auto 0 auto","80px auto","80px auto","auto"]} >
           <Box  >
              <Text textAlign="center" fontSize={["14px","16px"]} fontWeight="400" color="#33343D">Total Balance</Text>
-               <Text textAlign="center" pt="10px" fontSize={["30px","45px","60px"]} fontWeight="900" color="#5B2E4F">#{totalBalance}</Text>
+               <Text textAlign="center" pt="10px" fontSize={["30px","45px","60px"]} fontWeight="900" color="#5B2E4F">{naira.format(totalBalance)}</Text>
             <Text fontSize={["12px","15px"]} m="0 auto" fontWeight="400" maxW="200px" textAlign="center" color="rgba(102, 102, 102, 0.85)">
               {(errormessage ==='') &&  (errorMessageForAmount ==='') ? 
-              `If I save ₦${amount} ${frequency} for ${timeframe} months, I will have a balance of ${totalBalance}` 
+              `If I save ₦${amount} ${frequency} for ${timeframe} months, I will have a balance of ${naira.format(totalBalance)}` 
               :
             'If I do not save regularly, I will not have any balance' }
             </Text>
@@ -130,11 +133,11 @@ const InterestStat = () => {
          <Stack direction="row" mt="40px"  spacing={10} justifyContent="center">
                 <VStack>
                     <Text fontSize={["11px","13px"]} fontWeight="400" color="#666666">Total Savings</Text>
-                    <Text fontSize={["15px","17px"]} fontWeight="500" color="#33343D" textAlign="center" fontFamily="SatoshiBold">#{(totalBalance + interest).toFixed(2)}</Text>
+                    <Text fontSize={["15px","17px"]} fontWeight="500" color="#33343D" textAlign="center" fontFamily="SatoshiBold">{naira.format(totalBalance + interest)}</Text>
                 </VStack>
                 <VStack>
                    <Text fontSize={["11px","13px"]} fontWeight="400" color="#666666">Interest Gained</Text>
-                    <Text fontSize={["15px","17px"]} fontWeight="500" color="#33343D" textAlign="center" fontFamily="SatoshiBold">#{interest}</Text>
+                    <Text fontSize={["15px","17px"]} fontWeight="500" color="#33343D" textAlign="center" fontFamily="SatoshiBold">{naira.format(interest)}</Text>
                 </VStack>
                 <VStack>
                    <Text fontSize={["11px","13px"]} fontWeight="400" color="#666666">Interest Rate</Text>

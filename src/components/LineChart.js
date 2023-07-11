@@ -68,7 +68,7 @@ const data = {
   datasets: [
     
     {
-      label: 'Dataset 2',
+      label: 'Month vs Interest',
       data: interestValues,
       borderColor: '#540A45 ',
       backgroundColor: '#5B2E4F',
