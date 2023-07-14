@@ -4,8 +4,11 @@ import * as ReactDOM from 'react-dom/client';
 import App from './App';
 import './index.css';
 
+localStorage.setItem('chakra-ui-color-mode', 'light')
+
 const container = document.getElementById('root');
 const root = ReactDOM.createRoot(container);
+
 
 root.render(
   <StrictMode>

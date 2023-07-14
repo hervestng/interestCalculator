@@ -6,7 +6,7 @@ import { calculator } from '../utils/services'
 
 const InterestStat = () => {
 
-  const [amount, setAmount] = useState(10000)
+  const [amount, setAmount] = useState(parseFloat(10000).toLocaleString())
   const [timeframe, setTimeFrame] = useState(4)
   const [frequency, setFrequency] = useState('weekly')
   const [errormessage, setErrorMessage] = useState('error')
@@ -41,13 +41,20 @@ const InterestStat = () => {
         setInterest(0)
         return setErrorMessageForAmount('Amount must be greater than 0')
       }
+      if (!/^[0-9,]*$/.test(amount)) {
+        setErrorMessageForAmount('Please enter only numbers');
+        return; // Exit the function
+      }
+
+      const sanitizedAmount = parseFloat(amount.replace(/,/g, ''))
+      console.log(sanitizedAmount, typeof sanitizedAmount, "amount to pass")
       setErrorMessage('')
       setErrorMessageForAmount('')
-  
+     
       //(14/100/365)*timeframe to get the interest.
     
       try {
-        const data = await calculator(amount, frequency,timeframe)
+        const data = await calculator(sanitizedAmount, frequency,timeframe)
        
         setTotalBalance(data.total)
         setInterest(data.interest)
@@ -62,7 +69,28 @@ const InterestStat = () => {
     console.log(errorMessageForAmount ==='', errormessage ==='', (errormessage ==='') &&  (errorMessageForAmount ===''), "error messsages")
   
    calculate()
+  
   },[amount, timeframe, frequency, errorMessageForAmount, errormessage]) 
+
+  const handleAmountChange = (e)=>{
+   
+    const inputValue = e.target.value;
+
+    console.log(inputValue,"Input valueeeee")
+    // Remove all characters except numbers and decimal points
+    const sanitizedValue = inputValue.replace(/[^0-9.]/g, '');
+    
+    if (sanitizedValue === '') {
+      setAmount('');
+      setErrorMessageForAmount('');
+    } else {
+      const formattedValue = parseFloat(sanitizedValue).toLocaleString();
+      setAmount(formattedValue);
+      setErrorMessageForAmount('');
+    }
+    
+    
+  }
   return (
     <>
     <Flex m={["30px auto 0 auto","70px auto 0 auto"]} w={["100%","90%","90%"]} justifyContent="space-between" flexDir={["column","column","column","row"]} >
@@ -77,11 +105,7 @@ const InterestStat = () => {
                       color="#5B2E4F" 
                       fontWeight="700"   
                       value={amount}
-                      type="number"
-                     onChange={(e)=>{
-                      setAmount(e.target.value);
-                      setErrorMessageForAmount('')
-                     }}/>
+                     onChange={handleAmountChange}/>
                       
                  </HStack>
                  <Text color="#FF4949" fontSize="12px" fontWeight="500" >{errorMessageForAmount}</Text>

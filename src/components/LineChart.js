@@ -28,7 +28,7 @@ ChartJS.register(
 
 export default function LineChart({totalBalance ,investmentMonths}) {
 
-  console.log(totalBalance, investmentMonths)
+  //console.log(totalBalance, investmentMonths)
 
  let interestPerMonth = totalBalance / investmentMonths;
  const currentDate = new Date();
@@ -45,8 +45,8 @@ for (let i = 0; i < investmentMonths; i++) {
   interestPerMonth = interestPerMonth + totalBalance / investmentMonths
 }
 
-console.log("Months:", months);
-console.log("Interest Values:", interestValues);
+//console.log("Months:", months);
+//console.log("Interest Values:", interestValues);
 
 const options = {
   responsive: true,
