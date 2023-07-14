@@ -96,28 +96,30 @@ const InterestStat = () => {
     <>
     <Flex m={["30px auto 0 auto","70px auto 0 auto"]} w={["100%","90%","90%"]} justifyContent="space-between" flexDir={["column","column","column","row"]} >
         <Box m="0 auto" w={["100%","100%","50%","38%"]} >
-            <Box m="auto" boxShadow="rgba(149, 157, 165, 0.2) 0px 8px 24px"  p="47px 53px 47px 53px" >
+            <Box m="auto" boxShadow="rgba(149, 157, 165, 0.2) 0px 8px 24px"  p={["37px 23px", "47px 53px"]} >
                 <Text fontSize="14px" color="#666666" opacity="80%">I want to save</Text>
-                 <HStack opacity="38%" >
+                 <HStack opacity="80%" >
                    <Text fontSize="12px" fontWeight="500" color="#5B2E4F">NGN </Text>
                    <Input 
                       variant="unstyled"
                       fontSize="28px" 
                       color="#5B2E4F" 
-                      fontWeight="700"   
+                      fontWeight="700"  
+                     
+                      fontFamily="SatoshiBold"
                       value={amount}
                      onChange={handleAmountChange}/>
                       
                  </HStack>
                  <Text color="#FF4949" fontSize="12px" fontWeight="500" >{errorMessageForAmount}</Text>
                  <Stack m={["30px 0","60px 0"]} direction="row">
-                    <Button p="6px 17px 6px 17px" borderRadius="5px" border="1px solid #5B2E4F" fontSize="12px" color="#33343D" bg={frequency ==='daily'? '#F2C9E3' :"#fff"} onClick={() => {
+                    <Button p="6px 17px 6px 17px" borderRadius="5px" border="1px solid #5B2E4F" fontSize={["11px","12px"]} color="#33343D" bg={frequency ==='daily'? '#F2C9E3' :"#fff"} onClick={() => {
                       setFrequency("daily")
                       }} >Daily</Button>
-                    <Button p="6px 17px 6px 17px" borderRadius="5px" border="1px solid #5B2E4F" fontSize="12px" color="#33343D" bg={frequency ==='weekly'? '#F2C9E3' :"#fff"} onClick={() => {
+                    <Button p="6px 17px 6px 17px" borderRadius="5px" border="1px solid #5B2E4F" fontSize={["11px","12px"]} color="#33343D" bg={frequency ==='weekly'? '#F2C9E3' :"#fff"} onClick={() => {
                       setFrequency("weekly")
                       }}>Weekly</Button>
-                    <Button p="6px 17px 6px 17px" borderRadius="5px" border="1px solid #5B2E4F" fontSize="12px" color="#33343D" bg={frequency ==='monthly'? '#F2C9E3' :"#fff"} onClick={() => {
+                    <Button p="6px 17px 6px 17px" borderRadius="5px" border="1px solid #5B2E4F" fontSize={["11px","12px"]} color="#33343D" bg={frequency ==='monthly'? '#F2C9E3' :"#fff"} onClick={() => {
                       setFrequency("monthly")
                       }}>Monthly</Button>
                  </Stack>
@@ -141,16 +143,16 @@ const InterestStat = () => {
                      fontWeight="700" 
                      opacity="80%"/>
 
-                     <Text fontSize="28px" color="#5B2E4F" fontWeight="700" opacity="80%" fontFamily="SatoshiBolder">month</Text>
+                     <Text fontSize="28px" color="#5B2E4F" fontWeight="700" opacity="80%" fontFamily="SatoshiBolder">month(s)</Text>
                 </HStack>
                 <Text color="#FF4949" fontSize="12px" fontWeight="500" opacity="80%">{errormessage}</Text>
                 
             </Box>
         </Box>
-        <Box w={["100%","100%","100%","45%"]} boxShadow="rgba(100, 100, 111, 0.2) 0px 7px 29px 0px"  p="50px 70px 50px 70px" m={["80px auto 0 auto","80px auto","80px auto","auto"]} >
+        <Box w={["100%","100%","100%","45%"]} boxShadow="rgba(100, 100, 111, 0.2) 0px 7px 29px 0px"  p={["40px 20px 40px 20px","50px 70px 50px 70px"]} m={["80px auto 0 auto","80px auto","80px auto","auto"]} >
           <Box  >
              <Text textAlign="center" fontSize={["14px","16px"]} fontWeight="400" color="#33343D">Total Balance</Text>
-               <Text textAlign="center" pt="10px" fontSize={["30px","45px","60px"]} fontWeight="900" color="#5B2E4F">{naira.format(totalBalance)}</Text>
+               <Text textAlign="center" pt="10px" fontSize={["40px","45px","70px"]} fontFamily="SatoshiBolder" fontWeight="900" color="#5B2E4F">{naira.format(totalBalance)}</Text>
             <Text fontSize={["12px","15px"]} m="0 auto" fontWeight="400" maxW="200px" textAlign="center" color="rgba(102, 102, 102, 0.85)">
               {(errormessage ==='') &&  (errorMessageForAmount ==='') ? 
               `If I save ₦${amount} ${frequency} for ${timeframe} months, I will have a balance of ${naira.format(totalBalance)}` 
@@ -158,7 +160,7 @@ const InterestStat = () => {
             'If I do not save regularly, I will not have any balance' }
             </Text>
           </Box>
-         <Stack direction="row" mt="40px"  spacing={10} justifyContent="center">
+         <Stack direction="row" mt="40px"  spacing={[5,10]} justifyContent="center" className='savings-box'>
                 <VStack>
                     <Text fontSize={["11px","13px"]} fontWeight="400" color="#666666">Total Contribution</Text>
                     <Text fontSize={["15px","17px"]} fontWeight="500" color="#33343D" textAlign="center" fontFamily="SatoshiBold">{naira.format(totalBalance - interest)}</Text>
@@ -180,11 +182,13 @@ const InterestStat = () => {
               <Button m="30px 0" padding="13px 70px 13px 70px" borderRadius="6px" bg="#5B2E4F" fontFamily="SatoshiBold"
               color="#fff" fontSize="12px" fontWeight="500" _hover={{color:"#5B2E4F", border:"1px solid #5B2E4F", bg:"#fff"}}>START SAVING</Button>
           </Center>
-          <Box display={["block","block","none"]}>  
-        {(errormessage ==='') &&  (errorMessageForAmount ==='') && 
-        <LineChart totalBalance={totalBalance} investmentMonths={timeframe}/> }
+          <Box display={["flex","flex","none"]} >  
+            {(errormessage ==='') &&  (errorMessageForAmount ==='') && 
+             <LineChart 
+            totalBalance={totalBalance} 
+            investmentMonths={timeframe}/> }
      
-       </Box>
+         </Box>
       </Box>
     </Flex>
     

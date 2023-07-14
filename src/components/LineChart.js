@@ -68,7 +68,7 @@ const data = {
   datasets: [
     
     {
-      label: 'Month vs Interest',
+      label: 'Month vs Total balance',
       data: interestValues,
       borderColor: '#540A45 ',
       backgroundColor: '#5B2E4F',
@@ -76,7 +76,7 @@ const data = {
   ],
 };
   return (
-    <Box>
-     <Line width={500} height={300} options={options} data={data} />
+    <Box w="100%" mt="30px">
+     <Line options={options} data={data} />
   </Box>);
 }

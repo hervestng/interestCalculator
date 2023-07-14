@@ -18,3 +18,12 @@ body {
     font-family: 'MyFont' !important;
   }
   
+
+  @media screen and (max-width: 335px) {
+  
+    .savings-box{
+       display: flex;
+       flex-direction: column !important;
+    }
+  }
+  
