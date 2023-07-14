@@ -160,8 +160,8 @@ const InterestStat = () => {
           </Box>
          <Stack direction="row" mt="40px"  spacing={10} justifyContent="center">
                 <VStack>
-                    <Text fontSize={["11px","13px"]} fontWeight="400" color="#666666">Total Savings</Text>
-                    <Text fontSize={["15px","17px"]} fontWeight="500" color="#33343D" textAlign="center" fontFamily="SatoshiBold">{naira.format(totalBalance + interest)}</Text>
+                    <Text fontSize={["11px","13px"]} fontWeight="400" color="#666666">Total Contribution</Text>
+                    <Text fontSize={["15px","17px"]} fontWeight="500" color="#33343D" textAlign="center" fontFamily="SatoshiBold">{naira.format(totalBalance - interest)}</Text>
                 </VStack>
                 <VStack>
                    <Text fontSize={["11px","13px"]} fontWeight="400" color="#666666">Interest Gained</Text>
