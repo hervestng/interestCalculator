@@ -33,7 +33,8 @@ const InterestStat = () => {
       if(timeframe>12){
         setTotalBalance(0)
         setInterest(0)
-       return setErrorMessage('Duration cannot be more than 12 months ')
+        setErrorMessage('Duration cannot be more than 12 months ')
+      return 
       }
       
       if(amount<=0){
@@ -127,6 +128,9 @@ const InterestStat = () => {
                     width="50px"  
                     value={timeframe}
                     onChange={(e)=>{
+                       if(e.target.value > 12){
+                        return setErrorMessage('Please select timeframe less than 12')
+                       }
                         setTimeFrame(e.target.value);
                         setErrorMessage('')
                       }}
