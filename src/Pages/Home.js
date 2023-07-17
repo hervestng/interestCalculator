@@ -3,7 +3,6 @@ import React from 'react'
 import Navbar from '../components/Navbar'
 import InterestStat from '../components/InterestStat'
 
-
 const Home = () => {
   return (
    <Box p={["20px 20px","20px 30px"]}>
@@ -13,6 +12,7 @@ const Home = () => {
          <Text fontSize={["16px","17px"]} fontWeight="400" color="#666666D9">This is a description of the users calculator and what the user gains when you save monthly, daily or weekly</Text>
       </Box>
       <InterestStat/>
+    
    </Box>
   )
 }
