@@ -1,6 +1,5 @@
 import { Box, Text, Flex, HStack, Stack, Button, VStack, Center, Input } from '@chakra-ui/react'
 import React,{useEffect, useState} from 'react'
-import LineChart from './LineChart'
 import { calculator } from '../utils/services'
 import LineGraph from './LineGraph'
 

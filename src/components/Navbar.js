@@ -1,8 +1,6 @@
 import { Button, Flex, HStack, Img , Text, Box} from '@chakra-ui/react'
 import React from 'react'
 import logo from '../assets/HerVest Logo.svg'
-import google from "../assets/Google Play.svg"
-import appstore from "../assets/App Store.svg"
 import TopDrawer from './Drawer'
 
 const Navbar = () => {

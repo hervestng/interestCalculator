@@ -14,8 +14,7 @@ import {
   } from '@chakra-ui/react'
 import { HiMenuAlt2 } from 'react-icons/hi'
 import logo from '../assets/HerVest Logo.svg'
-import google from "../assets/Google Play.svg"
-import appstore from "../assets/App Store.svg"
+
 
 
 function  TopDrawer() {
@@ -40,8 +39,6 @@ function  TopDrawer() {
                 </Box>
                 <VStack>
                    <a href="https://app.hervest.ng/Signup"><Button p={["7px 26px 7px 26px","11px 36px 11px 36px"]} bg="#5B2E4F" fontSize="12px" color="#fff" borderRadius="6px" _hover={{color:"#5B2E4F", border:"1px solid #5B2E4F", bg:"#fff"}}>SIGN UP</Button></a> 
-                    <Img w={["100px","100%"]} objectFit="contain" src={google}/>
-                    <Img w={["100px","100%"]} objectFit="contain" src={appstore}/>
                 </VStack>
             </Flex>
             </DrawerBody>
