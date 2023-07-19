@@ -1,6 +1,6 @@
 
 @font-face {
-    font-family: 'MyFont';
+    font-family: 'satoshi';
     src: local('MyFont'), url(./fonts/Fonts/OTF/Satoshi-Regular.otf) format('woff');
     
   }
@@ -15,11 +15,11 @@
     
   }
 body {
-    font-family: 'MyFont' !important;
+    font-family: 'satoshi' !important;
   }
   
 
-  @media screen and (max-width: 335px) {
+  @media screen and (max-width: 650px) {
   
     .savings-box{
        display: flex;

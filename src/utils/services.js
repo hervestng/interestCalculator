@@ -4,6 +4,7 @@ export const calculator = async(amount,frequency,timeframe)=>{
     try {
        const result = await axios.get(`https://interest-calc-api.hervest.ng/${amount}/${frequency}/${timeframe}`)
    
+       console.log(result.data, amount, frequency, timeframe)
        return result.data
     } catch (error) {
         console.log(error)
