@@ -68,20 +68,21 @@ const SavingsInfo = ({
       
      }
   return (
-    <Box w={["100%","100%","38%"]} >
+    <Box  w={["100%","100%","60%","38%"]} m={["0 auto","0 auto","0 auto", 0]} >
             <Box m="auto" boxShadow="rgba(149, 157, 165, 0.2) 0px 8px 24px"  p={["37px 23px", "47px 53px"]} >
                 <Text fontSize="14px" color="#666666" opacity="80%">I want to save</Text>
                  <HStack opacity="80%" >
                    <Text fontSize={["12px","14px"]} fontWeight="500" color="#33343D">NGN </Text>
                    <Input 
                       variant="unstyled"
-                      fontSize="28px" 
+                      fontSize={["25px","28px"]} 
                       color="#5B2E4F" 
                       fontWeight="700"  
                       fontFamily="SatoshiBold"
                       value={amount}
                       placeholder='10,000'
-                      _placeholder={{color:"#5B2E4F", opacity:"80%",fontSize:"28px", fontWeight:"700", fontFamily:"SatoshiBold" }}
+                      _placeholder={{color:"#5B2E4F", opacity:"80%",
+                      fontSize: ["25px","28px"], fontWeight:"700", fontFamily:"SatoshiBold" }}
                      onChange={handleAmountChange}/>
                       
                  </HStack>
@@ -120,12 +121,12 @@ const SavingsInfo = ({
                     onChange={handleTimeframeChange}
                      caretColor="red"
                      variant="unstyled"
-                     fontSize="28px" 
+                     fontSize={["25px","28px"]}
                      color="#5B2E4F" 
                      fontWeight="700" 
                      opacity="80%"
                      placeholder='4'
-                     _placeholder={{color:"#5B2E4F", opacity:"80%",fontSize:"28px", fontWeight:"700", fontFamily:"SatoshiBold"}}
+                     _placeholder={{color:"#5B2E4F", opacity:"80%",fontSize:["25px","28px"], fontWeight:"700", fontFamily:"SatoshiBold"}}
                      />
                      <Text fontSize="28px" color="#5B2E4F" fontWeight="700" opacity="80%" fontFamily="SatoshiBolder">month(s)</Text>
                 </HStack>

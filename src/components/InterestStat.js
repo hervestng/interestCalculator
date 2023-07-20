@@ -193,7 +193,7 @@ const InterestStat = () => {
         setErrorMessageForAmount={setErrorMessageForAmount} setErrorMessage={setErrorMessage} 
         setTimeFrame={setTimeFrame}
         />
-        <Box w={["100%","100%","100%","50%"]} boxShadow="rgba(100, 100, 111, 0.2) 0px 7px 29px 0px"  p={["40px 20px 40px 20px","50px 40px 50px 40px"]} >
+        <Box w={["100%","100%","100%","50%"]} boxShadow="rgba(100, 100, 111, 0.2) 0px 7px 29px 0px" mt={["50px","50px","50px",0]}  p={["40px 20px 40px 20px","50px 40px 50px 40px"]} >
           <Box  >
              <Text textAlign="center" fontSize={["14px","16px"]} fontWeight="400" color="#33343D" >Total Balance</Text>
                <Text textAlign="center" pt="10px" fontSize={["30px","40px","45px","60px"]}  fontWeight="800" color="#5B2E4F" fontFamily="satoshiBold" >
@@ -236,8 +236,11 @@ const InterestStat = () => {
             </Box>
            <Center>
              <a href='http://hervestng.app.link/'>
-                 <Button m="30px 0" padding="13px 70px 13px 70px" borderRadius="6px" bg="#5B2E4F" fontFamily="SatoshiBold"
-              color="#fff" fontSize="12px" fontWeight="500" _hover={{color:"#5B2E4F", border:"1px solid #5B2E4F", bg:"#fff"}}>START SAVING</Button>
+                 <Button m="30px 0" padding={["13px 40px 13px 40px","13px 70px 13px 70px",]}
+                 borderRadius="6px" bg="#5B2E4F" fontFamily="SatoshiBold"
+                color="#fff" fontSize="12px" fontWeight="500" _hover={{color:"#5B2E4F", border:"1px solid #5B2E4F", bg:"#fff"}}>
+                START SAVING
+              </Button>
               </a> 
           </Center>
           <Box display={["block","block","none"]} >  
