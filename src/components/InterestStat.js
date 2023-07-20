@@ -41,11 +41,11 @@ const InterestStat = () => {
      }
   }
 
-  const getInterestRate = (amount, timeframe)=>{
+  const getInterestRate = async(amount, timeframe)=>{
     //using a day to be 30 days
     let investAmount = amount || 10000
     let period = timeframe || 4
-    console.log(investAmount, period,interestRate, period*30, "rate calculator")
+    //console.log(investAmount, period,interestRate, period*30, "rate calculator")
     const timeframeInDays = parseInt(period) * 30
     
     if(investAmount <= 1000000 && timeframeInDays <= 90){
@@ -96,7 +96,7 @@ const InterestStat = () => {
       setInterestRate(14)
       return
     }
-  
+   return
   }
 
   useEffect(()=>{
@@ -174,7 +174,7 @@ const InterestStat = () => {
     
    validateFields()
   
-  },[amount, timeframe, frequency, errorMessageForAmount, errormessage, interestRate, getInterestRate]) 
+  },[amount, timeframe, frequency, errorMessageForAmount, errormessage, interestRate]) 
 
 
 
