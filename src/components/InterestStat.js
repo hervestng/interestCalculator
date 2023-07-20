@@ -146,8 +146,7 @@ const InterestStat = () => {
       }
 
       const sanitizedAmount = parseFloat(amount.replace(/,/g, ''))
-      console.log(amount, sanitizedAmount.toString().length, "comparison")
-
+     
       if(sanitizedAmount.toString().length >= 11){
         calInterest(sanitizedAmount, frequency,timeframe)
         getInterestRate(sanitizedAmount, timeframe )
@@ -175,7 +174,7 @@ const InterestStat = () => {
     
    validateFields()
   
-  },[amount, timeframe, frequency, errorMessageForAmount, errormessage]) 
+  },[amount, timeframe, frequency, errorMessageForAmount, errormessage, interestRate]) 
 
 
 
