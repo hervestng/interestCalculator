@@ -48,20 +48,18 @@ const LineChart = ({totalBalance, investmentMonths}) => {
           
           }
         },
-        dataLabels: {
-            enabled: false
+         dataLabels: {
+          enabled: false,
+          formatter: function (val) {
+            // Use toLocaleString() with appropriate options to format numbers with a separator
+            return val.toLocaleString(); // This will add the number separator based on the user's locale
           },
+        },
           xaxis: {
             categories: months
           },
           stroke: {
             curve: 'smooth',
-          },
-          title: {
-            text: 'Monthly balance vs Interest',
-            fontWeight:"600",
-            align: 'center',
-            fontSize:"50px"
           },
           markers: {
             size: 1,
@@ -73,7 +71,11 @@ const LineChart = ({totalBalance, investmentMonths}) => {
                 show: false,
                 offsetX: 0,
                 offsetY: 10
-              }
+              },
+              formatter: function (val) {
+                // Use toLocaleString() with appropriate options to format numbers with a separator
+                return val.toLocaleString(); // This will add the number separator based on the user's locale
+              },
             },
             padding: {
               left: 5,
@@ -91,7 +93,9 @@ const LineChart = ({totalBalance, investmentMonths}) => {
             show: window.innerWidth < 400 ? false : true,
           
             labels: {
-        
+              formatter: function (val) {
+                return val.toLocaleString()
+              },
               style: {
                 colors: '#540A45',
                 fontWeight: 700
@@ -121,7 +125,7 @@ const LineChart = ({totalBalance, investmentMonths}) => {
         
     const series = [
         {
-          name: "interest",
+          name: "balance",
           data: interestValues
         }
       ]

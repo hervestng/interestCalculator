@@ -17,6 +17,7 @@ const InterestStat = () => {
   const [errorMessageForAmount, setErrorMessageForAmount] = useState('')
   const [totalBalance, setTotalBalance] = useState(0)
   const [interest, setInterest] = useState(0)
+  const [interestRate, setInterestRate] = useState(9.5)
   
 
   let naira = Intl.NumberFormat('en-NG', {
@@ -27,7 +28,7 @@ const InterestStat = () => {
   
 
   const calInterest = async(sanitizedAmount, frequency,timeframe)=>{
-    console.log(sanitizedAmount,timeframe)
+   // console.log(sanitizedAmount,timeframe,interestRate, timeframe*30)
     try {
      const data = await calculator(sanitizedAmount ||placeholderAmount, frequency,timeframe||placeholderTimeframe)
      //console.log(data,"data")
@@ -40,7 +41,63 @@ const InterestStat = () => {
      }
   }
 
+  const getInterestRate = (amount, timeframe)=>{
+    //using a day to be 30 days
+    let investAmount = amount || 10000
+    let period = timeframe || 4
+    console.log(investAmount, period,interestRate, period*30, "rate calculator")
+    const timeframeInDays = parseInt(period) * 30
+    
+    if(investAmount <= 1000000 && timeframeInDays <= 90){
+      setInterestRate(8.5)
+      return
+    }
+    if(investAmount <= 1000000 && timeframeInDays <= 180){
+      setInterestRate(9.5)
+      return
+    }
+    if(investAmount <= 1000000 && timeframeInDays <= 270){
+      setInterestRate(10.5)
+      return
+    }
+    if(investAmount <= 1000000 && timeframeInDays <= 365){
+      setInterestRate(11)
+      return
+    }
+    if(investAmount <= 5000000 && timeframeInDays <= 90){
+      setInterestRate(9.5)
+      return
+    }
+    if(investAmount <= 5000000 && timeframeInDays <= 180){
+      setInterestRate(10.50)
+      return
+    }
+    if(investAmount <= 5000000 && timeframeInDays <= 270){
+      setInterestRate(11.50)
+      return
+    }
+    if(investAmount <= 5000000 && timeframeInDays <= 365){
+      setInterestRate(12.5)
+      return
+    }
+    if(investAmount > 5000000 && timeframeInDays <= 90){
+      setInterestRate(11.50)
+      return
+    }
+    if(investAmount > 5000000 && timeframeInDays <= 180){
+      setInterestRate(12.50)
+      return
+    }
+    if(investAmount > 5000000 && timeframeInDays <= 270){
+      setInterestRate(13.50)
+      return
+    }
+    if(investAmount > 5000000 && timeframeInDays <= 365){
+      setInterestRate(14)
+      return
+    }
   
+  }
 
   useEffect(()=>{
 
@@ -50,6 +107,7 @@ const InterestStat = () => {
       if(!amount && !timeframe){
 
         calInterest(placeholderAmount, frequency, placeholderTimeframe)
+        getInterestRate(placeholderAmount,placeholderTimeframe)
         setErrorMessage('')
         setErrorMessageForAmount('')
         return
@@ -92,12 +150,14 @@ const InterestStat = () => {
 
       if(sanitizedAmount.toString().length >= 11){
         calInterest(sanitizedAmount, frequency,timeframe)
+        getInterestRate(sanitizedAmount, timeframe )
        return 
       }
       if(errorMessageForAmount || errormessage){
+        console.log("There's an error here")
         setTotalBalance(0)
         setInterest(0)
-        calInterest(amount,frequency, timeframe)
+        //calInterest(amount,frequency, timeframe)
         return
       }
 
@@ -109,6 +169,7 @@ const InterestStat = () => {
       setErrorMessageForAmount('')
 
       calInterest(sanitizedAmount, frequency,timeframe)
+      getInterestRate(sanitizedAmount,timeframe)
   
     }
     
@@ -121,7 +182,7 @@ const InterestStat = () => {
   
   return (
     <>
-  <Flex m={["30px auto 0 auto","70px auto 0 auto"]} w={["100%","90%","90%"]} justifyContent="space-between" flexDir={["column","column","column","row"]} >
+  <Flex m={["30px auto 0 auto","70px auto 0 auto"]}  w="100%" justifyContent="space-between" flexDir={["column","column","column","row"]} >
         <SavingsInfo amount={amount} 
         errorMessageForAmount={errorMessageForAmount} 
         frequency={frequency}
@@ -132,7 +193,7 @@ const InterestStat = () => {
         setErrorMessageForAmount={setErrorMessageForAmount} setErrorMessage={setErrorMessage} 
         setTimeFrame={setTimeFrame}
         />
-        <Box w={["100%","100%","100%","45%"]} boxShadow="rgba(100, 100, 111, 0.2) 0px 7px 29px 0px"  p={["40px 20px 40px 20px","50px 40px 50px 40px"]} m={["80px auto 0 auto","80px auto","80px auto","auto"]} >
+        <Box w={["100%","100%","100%","50%"]} boxShadow="rgba(100, 100, 111, 0.2) 0px 7px 29px 0px"  p={["40px 20px 40px 20px","50px 40px 50px 40px"]} >
           <Box  >
              <Text textAlign="center" fontSize={["14px","16px"]} fontWeight="400" color="#33343D" >Total Balance</Text>
                <Text textAlign="center" pt="10px" fontSize={["30px","40px","45px","60px"]}  fontWeight="800" color="#5B2E4F" fontFamily="satoshiBold" >
@@ -165,7 +226,7 @@ const InterestStat = () => {
                 </VStack>
                 <VStack>
                    <Text fontSize={["11px","13px"]} fontWeight="400" color="#666666">Interest Rate</Text>
-                    <Text fontSize={["15px","17px"]} fontWeight="500" color="#33343D" textAlign="center" fontFamily="SatoshiBold">14%</Text>
+                    <Text fontSize={["15px","17px"]} fontWeight="500" color="#33343D" textAlign="center" fontFamily="SatoshiBold">{interestRate}%</Text>
                 </VStack>
           </Stack>
           <Box display={["none","none","block"]}>     
@@ -174,8 +235,10 @@ const InterestStat = () => {
                investmentMonths={timeframe || placeholderTimeframe}/>}
             </Box>
            <Center>
-              <Button m="30px 0" padding="13px 70px 13px 70px" borderRadius="6px" bg="#5B2E4F" fontFamily="SatoshiBold"
+             <a href='http://hervestng.app.link/'>
+                 <Button m="30px 0" padding="13px 70px 13px 70px" borderRadius="6px" bg="#5B2E4F" fontFamily="SatoshiBold"
               color="#fff" fontSize="12px" fontWeight="500" _hover={{color:"#5B2E4F", border:"1px solid #5B2E4F", bg:"#fff"}}>START SAVING</Button>
+              </a> 
           </Center>
           <Box display={["block","block","none"]} >  
             {(errormessage ==='') &&  (errorMessageForAmount ==='') && 

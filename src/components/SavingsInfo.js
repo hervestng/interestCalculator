@@ -68,7 +68,7 @@ const SavingsInfo = ({
       
      }
   return (
-    <Box m="0 auto" w={["100%","100%","50%","38%"]} >
+    <Box w={["100%","100%","38%"]} >
             <Box m="auto" boxShadow="rgba(149, 157, 165, 0.2) 0px 8px 24px"  p={["37px 23px", "47px 53px"]} >
                 <Text fontSize="14px" color="#666666" opacity="80%">I want to save</Text>
                  <HStack opacity="80%" >

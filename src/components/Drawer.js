@@ -38,7 +38,7 @@ function  TopDrawer() {
                    <Text fontSize="12px" color="#5B2E4F" fontWeight="400">Log in</Text>
                 </Box>
                 <VStack>
-                   <a href="https://app.hervest.ng/Signup"><Button p={["7px 26px 7px 26px","11px 36px 11px 36px"]} bg="#5B2E4F" fontSize="12px" color="#fff" borderRadius="6px" _hover={{color:"#5B2E4F", border:"1px solid #5B2E4F", bg:"#fff"}}>SIGN UP</Button></a> 
+                   <a href="http://hervestng.app.link/"><Button p={["7px 26px 7px 26px","11px 36px 11px 36px"]} bg="#5B2E4F" fontSize="12px" color="#fff" borderRadius="6px" _hover={{color:"#5B2E4F", border:"1px solid #5B2E4F", bg:"#fff"}}>SIGN UP</Button></a> 
                 </VStack>
             </Flex>
             </DrawerBody>

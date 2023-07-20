@@ -13,6 +13,7 @@ export const calculator = async(amount,frequency,timeframe)=>{
 }
 
 
+
 /*
 const yearlyInterest = (initialSavingsAmount *interestRate * (timeframe)/12)/100
 
