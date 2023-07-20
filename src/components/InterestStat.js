@@ -174,7 +174,7 @@ const InterestStat = () => {
     
    validateFields()
   
-  },[amount, timeframe, frequency, errorMessageForAmount, errormessage, interestRate]) 
+  },[amount, timeframe, frequency, errorMessageForAmount, errormessage, interestRate, getInterestRate]) 
 
 
 
