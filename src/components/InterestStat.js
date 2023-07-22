@@ -217,10 +217,10 @@ const InterestStat = () => {
                     </HStack>
                 </VStack>
                 <VStack>
-                   <Text fontSize={["11px","13px"]} fontWeight="400" color="#666666">Interest Gained</Text>
-                   <HStack align="center" justify="center" spacing={0}>
-                        <Text fontSize={["15px","17px"]} fontWeight="500" color="#33343D" textAlign="center" fontFamily="Inter">₦</Text>
-                        <Text fontSize={["15px","17px"]} fontWeight="500" color="#33343D" textAlign="center" fontFamily="satoshiBold">{parseFloat(interest).toLocaleString()}</Text>
+                    <Text fontSize={["11px","13px"]} fontWeight="400" color="#666666">Interest Gained</Text>
+                    <HStack align="center" justify="center" spacing={0}>
+                    <Text fontSize={["15px","17px"]} fontWeight="500" color="#33343D" textAlign="center" fontFamily="Inter">₦</Text>
+                    <Text fontSize={["15px","17px"]} fontWeight="500" color="#33343D" textAlign="center" fontFamily="satoshiBold">{parseFloat(interest).toLocaleString()}</Text>
                     </HStack>
                 </VStack>
                 <VStack>
