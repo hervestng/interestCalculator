@@ -27,3 +27,31 @@ body {
     }
   }
   
+    .hover-underline {
+      position: relative;
+      text-decoration: none;
+      color: #5B2E4F;
+    }
+  
+    .hover-underline::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 100%;
+      bottom: -2px;
+      height: 2px;
+      background-color: #5B2E4F;
+      transition: right 1s ease-out;
+    }
+  
+    .hover-underline:hover::before {
+      right: 0;
+    }
+
+    a{
+      border: none !important;
+    }
+
+  a:focus {
+    outline: none;
+  }
