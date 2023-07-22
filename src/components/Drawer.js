@@ -33,13 +33,13 @@ function  TopDrawer() {
                 <Flex justifyContent="space-between"> 
                   <Box>
                       <a  href='https://learn.hervest.ng/'>
-                        <Text cursor="pointer" fontSize="12px" color="#5B2E4F" fontWeight="400" >About</Text>
+                        <Text cursor="pointer" fontSize="12px" color="#5B2E4F" fontWeight="400" >Learn</Text>
                       </a>
                       <a  href='https://hervest.ng/#invest'>
-                        <Text cursor="pointer" fontSize="12px" color="#5B2E4F" fontWeight="400" >Insights</Text>
+                        <Text cursor="pointer" fontSize="12px" color="#5B2E4F" fontWeight="400" >Save & Invest</Text>
                         </a>
                       <a  href="https://hervest.ng/faqs/">
-                        <Text cursor="pointer" fontSize="12px" color="#5B2E4F" fontWeight="400">Contact</Text>
+                        <Text cursor="pointer" fontSize="12px" color="#5B2E4F" fontWeight="400">FAQs</Text>
                         </a>
                       <a  href='http://hervestng.app.link/'>
                         <Text cursor="pointer" fontSize="12px" color="#5B2E4F" fontWeight="400">Log in</Text>
