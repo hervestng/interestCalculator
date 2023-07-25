@@ -7,7 +7,7 @@ const Navbar = () => {
   return (
     <>
     <Flex justify="space-between" display={["none","none","none","flex"]}>
-        <Img src={logo}/>
+        <a href=' https://hervest.ng'><Img src={logo} objectFit="contain"/></a>
         <HStack spacing={10}>
           <a className='hover-underline' href='https://learn.hervest.ng/'>
             <Text cursor="pointer" fontSize="12px" color="#5B2E4F" fontWeight="400">Learn</Text>

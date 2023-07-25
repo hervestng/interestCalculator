@@ -28,7 +28,8 @@ function  TopDrawer() {
           <DrawerOverlay />
           <DrawerContent>
             <DrawerHeader borderBottomWidth='1px'>
-                 <Img src={logo}/></DrawerHeader>
+              <a href=' https://hervest.ng'><Img src={logo} objectFit="contain" /></a>
+            </DrawerHeader>
             <DrawerBody>
                 <Flex justifyContent="space-between"> 
                   <Box>
