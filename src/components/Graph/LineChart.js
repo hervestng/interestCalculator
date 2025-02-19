@@ -20,7 +20,6 @@ const LineChart = ({ totalBalance, investmentMonths }) => {
     interestPerMonth = Math.ceil(
       interestPerMonth + totalBalance / investmentMonths
     );
-    //  console.log(interestPerMonth,"interest per month")
   }
 
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
