@@ -30,7 +30,6 @@ const InterestStat = () => {
   });
 
   const calInterest = async (sanitizedAmount, frequency, timeframe) => {
-    // console.log(sanitizedAmount,timeframe,interestRate, timeframe*30)
     try {
       let savingsTimes = 0;
       if (frequency === 'daily') {
@@ -43,19 +42,11 @@ const InterestStat = () => {
         savingsTimes = 1;
       }
 
-      console.log(sanitizedAmount, 'THE SANITIZED AMOUNT');
       const totalSavingAmount =
         Number(sanitizedAmount || placeholderAmount) *
         Number(timeframe || 4) *
         savingsTimes;
 
-      console.log(
-        totalSavingAmount,
-        timeframe,
-        frequency,
-        sanitizedAmount,
-        'total yesssss'
-      );
       const data = await getSummaryCalculator({
         frequency: frequency || 'weekly',
         amount: Number(totalSavingAmount),
@@ -63,9 +54,7 @@ const InterestStat = () => {
       });
       setTotalBalance(data.total_payout);
       setSavingSummary(data);
-    } catch (error) {
-      console.log(error, 'error');
-    }
+    } catch (error) {}
   };
 
   useEffect(() => {
@@ -90,8 +79,6 @@ const InterestStat = () => {
       }
 
       if (parseInt(amount) === 0) {
-        console.log(amount, 'amount');
-        console.log('amount value', amount, amount <= 0);
         setTotalBalance(0);
         return setErrorMessageForAmount('Amount must be greater than 0');
       }
@@ -108,13 +95,11 @@ const InterestStat = () => {
         return;
       }
       if (errorMessageForAmount || errormessage) {
-        console.log("There's an error here");
         setTotalBalance(0);
         //calInterest(amount,frequency, timeframe)
         return;
       }
 
-      console.log(sanitizedAmount, typeof sanitizedAmount, 'amount to pass');
       setErrorMessage('');
       setErrorMessageForAmount('');
       calInterest(sanitizedAmount, frequency, timeframe);
