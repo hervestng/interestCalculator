@@ -12,10 +12,8 @@ export const getSummaryCalculator = async payload => {
       }
     );
 
-    console.log(res, 'THE RESPONSE BACK OOOOOO');
     return res?.data?.data;
   } catch (error) {
-    console.log(error);
     throw error;
   }
 };
