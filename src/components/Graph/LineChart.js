@@ -13,7 +13,7 @@ const LineChart = ({ totalBalance, investmentMonths }) => {
   for (let i = 0; i < investmentMonths; i++) {
     const month = (currentMonth + i) % 12;
     const monthName = new Date(0, month).toLocaleString('en-US', {
-      month: 'long',
+      month: 'short',
     });
     months.push(monthName);
     interestValues.push(interestPerMonth);
